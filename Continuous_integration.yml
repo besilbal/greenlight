@@ -1,0 +1,41 @@
+---
+- name: Continuous Deployment
+  hosts: localhost
+
+  tasks:
+
+    - name: Load configuration
+      shell: echo "Configuration loaded successfully"
+      register: t1
+    - debug:
+        var: t1.stdout_lines
+
+    - name: Load secrets
+      shell: echo "Secrets loaded successfully"
+      register: t2
+    - debug:
+        var: t2.stdout_lines
+
+    - name: Run DB Migrations
+      shell: echo "DB Migration executed successfully"
+      register: t3
+    - debug:
+        var: t3.stdout_lines
+
+    - name: Run Deployment
+      shell: echo "Application Deployed"
+      register: t4
+    - debug:
+        var: t4.stdout_lines
+
+    - name: Capture Parameters
+      shell: echo "Parameters captured"
+      register: t5
+    - debug:
+        var: t5.stdout_lines
+
+    - name: Perform Smoke test
+      shell: echo "smoke test completed successfully"
+      register: t5
+    - debug:
+        var: t5.stdout_lines
