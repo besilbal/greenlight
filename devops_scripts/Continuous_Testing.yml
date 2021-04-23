@@ -1,0 +1,41 @@
+---
+- name: Continuous Deployment
+  hosts: localhost
+
+  tasks:
+
+    - name: Run Feature Testing
+      shell: echo "Performing Feature Testing"
+      register: t1
+    - debug:
+        var: t1.stdout_lines
+
+    - name: Run Regression Testing
+      shell: echo "Performing Regression Testing"
+      register: t2
+    - debug:
+        var: t2.stdout_lines
+
+    - name: Run UI Tests
+      shell: echo "Performing UI Tests"
+      register: t3
+    - debug:
+        var: t3.stdout_lines
+
+    - name: Run Performance Test
+      shell: echo "Executing Performance Testing"
+      register: t4
+    - debug:
+        var: t4.stdout_lines
+
+    - name: DAST & IAST
+      shell: echo "Performing DAST & IAST"
+      register: t5
+    - debug:
+        var: t5.stdout_lines
+
+    - name: Sec/Pen Testing
+      shell: echo "Performing Sec/Pen Testing"
+      register: t6
+    - debug:
+        var: t6.stdout_lines
