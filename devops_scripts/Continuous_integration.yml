@@ -1,41 +1,35 @@
 ---
-- name: Continuous Deployment
+- name: Continuous Integration
   hosts: localhost
 
   tasks:
 
-    - name: Load configuration
-      shell: echo "Configuration loaded successfully"
+    - name: Code Quality
+      shell: echo "Performing Code Quality Check"
       register: t1
     - debug:
         var: t1.stdout_lines
 
-    - name: Load secrets
-      shell: echo "Secrets loaded successfully"
+    - name: Unit Test & Cov
+      shell: echo "Performing Code Coverage and Unit Test"
       register: t2
     - debug:
         var: t2.stdout_lines
 
-    - name: Run DB Migrations
-      shell: echo "DB Migration executed successfully"
+    - name: Unit NFT
+      shell: echo "Performing unit NFT"
       register: t3
     - debug:
         var: t3.stdout_lines
 
-    - name: Run Deployment
-      shell: echo "Application Deployed"
+    - name: SAST
+      shell: echo "Performing STAT"
       register: t4
     - debug:
         var: t4.stdout_lines
 
-    - name: Capture Parameters
-      shell: echo "Parameters captured"
-      register: t5
-    - debug:
-        var: t5.stdout_lines
-
-    - name: Perform Smoke test
-      shell: echo "smoke test completed successfully"
+    - name: Build Packages
+      shell: echo "Building and Signing Packages"
       register: t5
     - debug:
         var: t5.stdout_lines
