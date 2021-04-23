@@ -1,0 +1,17 @@
+---
+- name: Prepare Environment
+  hosts: localhost
+
+  tasks:
+
+    - name: Perform ORR
+      shell: echo "Performing ORR"
+      register: t1
+    - debug:
+        var: t1.stdout_lines
+
+    - name: Infra VA
+      shell: echo "Performing Infra vulnerability Assessment"
+      register: t2
+    - debug:
+        var: t2.stdout_lines
